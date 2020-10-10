@@ -39,7 +39,7 @@ target_include_directories(Template PUBLIC src/)
 target_link_libraries(Template -static-libgcc -static-libstdc++ stdc++fs)
 
 #--------------------------------
-# Source
+# Tests
 #--------------------------------
 
 if(BUILD_TESTING)
