@@ -43,5 +43,8 @@ target_link_libraries(Template -static-libgcc -static-libstdc++ stdc++fs)
 #--------------------------------
 
 if(BUILD_TESTING)
+    include(CTest)
+    enable_testing()
+
     add_subdirectory(tests)
 endif()
