@@ -17,7 +17,7 @@ add_compile_options("$<$<CONFIG:DEBUG>:-DDEBUG>") # Define DEBUG in Debug builds
 #--------------------------------
 
 if(MINGW)
-    ADD_COMPILE_OPTIONS(-lstdc++fs)
+    message(NOTICE "MinGW detected, setting compilation to Windows")
     set(WIN32 ON)
 endif()
 
