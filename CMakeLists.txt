@@ -6,26 +6,28 @@ set(CMAKE_DISABLE_IN_SOURCE_BUILD ON)
 
 cmake_policy(SET CMP0077 NEW) # set() overrides option()
 
-#--------------------------------
-# Debug Options
-#--------------------------------
 
-add_compile_options("$<$<CONFIG:DEBUG>:-DDEBUG>") # Define DEBUG in Debug builds
 
 #--------------------------------
 # Compiler configuration
 #--------------------------------
 
-if(MINGW)
-    message(NOTICE "MinGW detected, setting compilation to Windows")
+add_compile_options("$<$<CONFIG:DEBUG>:-DDEBUG>") # Define DEBUG in Debug builds
+
+if(MINGW AND UNIX) # Enable cross-compilation from Linux for Windows
+    message(NOTICE "MinGW detected, setting compilation for windows")
     set(WIN32 ON)
 endif()
+
+
 
 #--------------------------------
 # External libraries
 #--------------------------------
 
 add_subdirectory(lib)
+
+
 
 #--------------------------------
 # Source
@@ -39,6 +41,8 @@ target_include_directories(Template PUBLIC src/)
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     target_link_libraries(Template -static-libgcc -static-libstdc++)
 endif()
+
+
 
 #--------------------------------
 # Tests
