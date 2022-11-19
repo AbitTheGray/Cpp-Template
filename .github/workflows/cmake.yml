@@ -69,7 +69,7 @@ jobs:
             -DBUILD_TESTING=ON `
             -DCMAKE_C_COMPILER=gcc-10 `
             -DCMAKE_CXX_COMPILER=g++-10 `
-            -G "Visual Studio 16 2019" -A x64
+            -G "Visual Studio 17 2022" -A x64
 
       - name: Build
         working-directory: ${{runner.workspace}}/build
