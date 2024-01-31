@@ -27,8 +27,8 @@ jobs:
           cmake "$GITHUB_WORKSPACE" \
             -DCMAKE_BUILD_TYPE=Release \
             -DBUILD_TESTING=ON \
-            -DCMAKE_C_COMPILER=gcc-11 \
-            -DCMAKE_CXX_COMPILER=g++-11
+            -DCMAKE_C_COMPILER=gcc-13 \
+            -DCMAKE_CXX_COMPILER=g++-13
 
       - name: Build
         working-directory: ${{runner.workspace}}/build
